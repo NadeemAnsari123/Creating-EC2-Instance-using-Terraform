@@ -15,4 +15,5 @@ provider "aws" {
 resource "aws_instance" "nadeem" {
   ami = "ami-0ecb62995f68bb549"
   instance_type = "t3.micro"
+  
 }
