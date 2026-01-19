@@ -1,58 +1,109 @@
-🚀 Terraform AWS EC2 Instance Creation
-📌 Project Overview
-This project demonstrates how to provision an AWS EC2 instance using Terraform. Terraform is used as an Infrastructure as Code (IaC) tool to automate the creation of cloud resources in a repeatable and reliable way.
+# Terraform EC2 Instance Setup
 
-NOTE:-
-1) if in the Instance AMI is change then the terraform is first do terminate the first instance then create a new instance
-🧱 Architecture
-AWS Provider
-EC2 Instance (t3.micro)
-Region: us-east-1
-📂 Project Structure
-terraform-ec2-project/ │ ├── main.tf ├── README.md └── .gitignore
-⚙️ Prerequisites
-Before running this project, make sure you have:
-AWS Account
-AWS CLI installed
-Terraform installed
-AWS Access Key & Secret Key configured
-Configure AWS credentials:
-aslo check the main.tf file
+This repository contains Terraform configuration to provision an **AWS EC2 instance** using Infrastructure as Code (IaC).
+
+---
+
+## 📌 Overview
+
+Using Terraform, this project automates the creation of an EC2 instance on AWS. It helps you manage cloud infrastructure in a **reproducible, version-controlled, and scalable** way.
+
+---
+
+## 🛠️ Prerequisites
+
+Before you begin, make sure you have:
+
+* An **AWS Account**
+* **AWS IAM User** with required permissions (EC2, VPC, etc.)
+* **AWS CLI** installed and configured
+* **Terraform** installed (v1.x recommended)
+* **Git** installed
+
+---
+
+## 📂 Project Structure
+
+```
+.
+├── main.tf            # Main Terraform configuration
+├── README.md          # Project documentation
+```
+
+---
+
+## ⚙️ Configuration
+
+1. **Configure AWS credentials**
+
+```bash
 aws configure
+```
 
-📝 Terraform Configuration (main.tf) provider "aws" { region = "us-east-1" }
+2. **Initialize Terraform**
 
-resource "aws_instance" "mywebserver" { ami = "ami-0ff8a91507f77f867" instance_type = "t3.micro"
-
-tags = { Name = "Terraform-EC2" } }
-
-🚀 Steps to Create EC2 Instance Using Terraform
-1️⃣ Initialize Terraform
+```bash
 terraform init
-2️⃣ Validate Configuration
+```
+
+3. **Validate configuration**
+
+```bash
 terraform validate
-3️⃣ Preview the Plan
+```
+
+4. **Preview infrastructure changes**
+
+```bash
 terraform plan
-4️⃣ Apply Configuration
+```
+
+5. **Create EC2 instance**
+
+```bash
 terraform apply
-Type yes when prompted.
-✅ Output
-After successful execution: An EC2 instance is created in AWS Instance is visible in AWS EC2 Dashboard
+```
 
-Infrastructure is managed by Terraform state
+Type `yes` when prompted.
 
-🧹 Destroy Resources (Optional)
-To delete the EC2 instance:
+---
+
+## 🖥️ Resources Created
+
+* AWS EC2 Instance
+* Associated Security Group (if defined)
+* Key Pair (if configured)
+
+---
+
+## 📤 Outputs
+
+After successful deployment, Terraform will output:
+
+* EC2 Instance ID
+* Public IP Address (if enabled)
+* Availability Zone
+
+---
+
+## 🧹 Destroy Infrastructure
+
+To remove all resources created by Terraform:
+
+```bash
 terraform destroy
-🔐 Security Best Practices
-AWS credentials are not hardcoded
+```
 
-.terraform/ and terraform.tfstate are ignored using .gitignore No sensitive data pushed to GitHub
+---
 
-📌 Why Terraform?
-Infrastructure as Code
-Automation & consistency
-Easy resource management
-Version control friendly
-📎 Conclusion
-This project helps understand how Terraform can be used to automate AWS infrastructure creation efficiently and securely.
+## 🔒 Security Best Practices
+
+* Never commit `terraform.tfstate` files
+* Use `.gitignore` to exclude sensitive files
+* Store secrets in environment variables or secret managers
+
+---
+
+## 👤 Author
+
+Created by Nadeem Ansari
