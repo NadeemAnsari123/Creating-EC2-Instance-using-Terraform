@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-"Creating-EC2-Instance-using-Terraforms" 
-"NadeemAnsari123" 
-"# NadeemAnsari123" 
+Creating-EC2-Instance-using-Terraforms 
 =======
 # Terraform EC2 Instance Setup
 
